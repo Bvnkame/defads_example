@@ -1,0 +1,44 @@
+local function start_spinner()
+	gui.animate(gui.get_node("logo"), "rotation.z", -360, gui.EASING_INOUTEXPO, 2, 0, nil, gui.PLAYBACK_LOOP_FORWARD)
+end
+
+local function stop_spinner()
+	gui.cancel_animation(gui.get_node("logo"), "rotation.z")
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+end
+
+function final(self)
+	msg.post(".", "release_input_focus")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("closed") then
+		stop_spinner()
+	elseif message_id == hash("error") then
+		stop_spinner()
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.released then
+		if gui.pick_node(gui.get_node("leadbolt/bg"), action.x, action.y) then
+			start_spinner()
+			msg.post("example:/leadbolt", "show", { section_id = 186037919 })
+		elseif gui.pick_node(gui.get_node("appnext_interstitial/bg"), action.x, action.y) then
+			start_spinner()
+			msg.post("example:/appnext", "show_interstitial", { android_id = "7aee4492-b047-4d7a-ab15-7f06ab0fea6b", ios_id = "6eb6c04a-65d1-497e-a33f-4f201b42311e" })
+		elseif gui.pick_node(gui.get_node("appnext_video/bg"), action.x, action.y) then
+			start_spinner()
+			msg.post("example:/appnext", "show_video", { android_id = "7aee4492-b047-4d7a-ab15-7f06ab0fea6b", ios_id = "6eb6c04a-65d1-497e-a33f-4f201b42311e" })
+		elseif gui.pick_node(gui.get_node("adsense_responsive/bg"), action.x, action.y) then
+			start_spinner()
+			msg.post("example:/adsense", "show_responsive", { ad_client = "ca-pub-0096465029088336", ad_slot = "5784949502" })
+		elseif gui.pick_node(gui.get_node("adsense_fixed/bg"), action.x, action.y) then
+			start_spinner()
+			msg.post("example:/adsense", "show_fixed", { ad_client = "ca-pub-0096465029088336", ad_slot = "8201862307", width = 300, height = 250 })
+		end
+	end
+end

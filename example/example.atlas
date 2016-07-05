@@ -1,0 +1,33 @@
+images {
+  image: "/assets/images/green_button08.png"
+}
+images {
+  image: "/assets/images/appnext1.png"
+}
+images {
+  image: "/assets/images/appnext2.png"
+}
+images {
+  image: "/assets/images/leadbolt.png"
+}
+images {
+  image: "/assets/images/adsense1.png"
+}
+images {
+  image: "/assets/images/adsense2.png"
+}
+images {
+  image: "/assets/images/adsense_icon.png"
+}
+images {
+  image: "/assets/images/appnext_icon.png"
+}
+images {
+  image: "/assets/images/leadbolt_icon.png"
+}
+images {
+  image: "/assets/appicons/icon_152.png"
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0
