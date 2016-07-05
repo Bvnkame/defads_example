@@ -1,9 +1,11 @@
-local function start_spinner()
-	gui.animate(gui.get_node("logo"), "rotation.z", -360, gui.EASING_INOUTEXPO, 2, 0, nil, gui.PLAYBACK_LOOP_FORWARD)
-end
-
 local function stop_spinner()
 	gui.cancel_animation(gui.get_node("logo"), "rotation.z")
+	gui.set_rotation(gui.get_node("logo"), vmath.vector3())
+end
+
+local function start_spinner()
+	stop_spinner()
+	gui.animate(gui.get_node("logo"), "rotation.z", -360, gui.EASING_INOUTEXPO, 2, 0, nil, gui.PLAYBACK_LOOP_FORWARD)
 end
 
 function init(self)
