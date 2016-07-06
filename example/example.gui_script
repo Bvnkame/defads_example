@@ -17,9 +17,9 @@ function final(self)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("closed") then
+	if message_id == hash("ad_closed") then
 		stop_spinner()
-	elseif message_id == hash("error") then
+	elseif message_id == hash("ad_error") then
 		stop_spinner()
 	end
 end
@@ -41,6 +41,9 @@ function on_input(self, action_id, action)
 		elseif gui.pick_node(gui.get_node("adsense_fixed/bg"), action.x, action.y) then
 			start_spinner()
 			msg.post("example:/adsense", "show_fixed", { ad_client = "ca-pub-0096465029088336", ad_slot = "8201862307", width = 300, height = 250 })
+		elseif gui.pick_node(gui.get_node("adcash/bg"), action.x, action.y) then
+			start_spinner()
+			msg.post("example:/adcash", "show", { zone_id = 1322807 })
 		end
 	end
 end

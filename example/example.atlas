@@ -2,21 +2,6 @@ images {
   image: "/assets/images/green_button08.png"
 }
 images {
-  image: "/assets/images/appnext1.png"
-}
-images {
-  image: "/assets/images/appnext2.png"
-}
-images {
-  image: "/assets/images/leadbolt.png"
-}
-images {
-  image: "/assets/images/adsense1.png"
-}
-images {
-  image: "/assets/images/adsense2.png"
-}
-images {
   image: "/assets/images/adsense_icon.png"
 }
 images {
@@ -27,6 +12,9 @@ images {
 }
 images {
   image: "/assets/appicons/icon_152.png"
+}
+images {
+  image: "/assets/images/adcash_icon.png"
 }
 margin: 0
 extrude_borders: 1
