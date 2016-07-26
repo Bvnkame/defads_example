@@ -1,7 +1,7 @@
 [project]
 title = DefAdsExample
 version = 0.1
-dependencies = https://github.com/britzl/defads/archive/0.3.2.zip
+dependencies = https://github.com/britzl/defads/archive/0.4.zip
 branch = unknown
 commit = unknown
 build = unknown
