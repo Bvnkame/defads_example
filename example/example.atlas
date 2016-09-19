@@ -16,6 +16,9 @@ images {
 images {
   image: "/assets/images/adcash_icon.png"
 }
+images {
+  image: "/assets/images/FB-f-Logo__blue_100.png"
+}
 margin: 0
 extrude_borders: 1
 inner_padding: 0

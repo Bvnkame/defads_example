@@ -51,6 +51,8 @@ function on_input(self, action_id, action)
 			show_ad(self, "example:/adsense", "show_fixed", { ad_client = "ca-pub-0096465029088336", ad_slot = "8201862307", width = 300, height = 250 })
 		elseif gui.pick_node(gui.get_node("adcash/bg"), action.x, action.y) then
 			show_ad(self, "example:/adcash", "show", { zone_id = 1322807 })
+		elseif gui.pick_node(gui.get_node("facebook/bg"), action.x, action.y) then
+			show_ad(self, "example:/facebook", "show", { url = "https://britzl.github.io/defads_example/facebook.html" })
 		end
 	end
 end
