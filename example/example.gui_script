@@ -9,13 +9,17 @@ local function start_spinner()
 end
 
 local function show_ad(self, url, message_id, message)
+	print("Showing ad from", url)
 	start_spinner()
 	self.current_ad_url = url
 	msg.post(url, message_id, message)
 end
 
 function init(self)
-	assert(iac and webview, "ERROR: Missing 'iac' and 'webview' - Are you trying to run this on something other than a mobile device?")
+	if not iac or not webview then
+		print("ERROR: Missing 'iac' and 'webview' - Are you trying to run this on something other than a mobile device?")
+		return
+	end
 	msg.post(".", "acquire_input_focus")
 
 	iac.set_listener(function(self, payload, type)
@@ -27,7 +31,7 @@ end
 
 function final(self)
 	msg.post(".", "release_input_focus")
-	iac.set_listener(nil)
+	if iac then iac.set_listener(nil) end
 end
 
 function on_message(self, message_id, message, sender)
@@ -54,7 +58,7 @@ function on_input(self, action_id, action)
 		elseif gui.pick_node(gui.get_node("facebook/bg"), action.x, action.y) then
 			show_ad(self, "example:/facebook", "show", { url = "https://britzl.github.io/defads_example/facebook.html" })
 		elseif gui.pick_node(gui.get_node("giftgaming/bg"), action.x, action.y) then
-			show_ad(self, "example:/giftgaming", "show", { apikey = "test" })
+			show_ad(self, "example:/giftgaming", "show", { apikey = "X2TYVGKD1MJ5N0TMJXDN3Y1W22ZAFCOC", test = true })
 		end
 	end
 end
